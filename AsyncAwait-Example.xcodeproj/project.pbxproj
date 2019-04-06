@@ -12,16 +12,22 @@
 		65CBC19D2258B8FD00EF5218 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65CBC19B2258B8FD00EF5218 /* Main.storyboard */; };
 		65CBC19F2258B8FE00EF5218 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65CBC19E2258B8FE00EF5218 /* Assets.xcassets */; };
 		65CBC1A22258B8FE00EF5218 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65CBC1A02258B8FE00EF5218 /* LaunchScreen.storyboard */; };
+		65CBC1AE2258B92800EF5218 /* Async+await.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CBC1AB2258B92800EF5218 /* Async+await.swift */; };
+		65CBC1AF2258B92800EF5218 /* Async.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CBC1AC2258B92800EF5218 /* Async.swift */; };
+		65CBC1B02258B92800EF5218 /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CBC1AD2258B92800EF5218 /* Future.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		65CBC1942258B8FD00EF5218 /* AsyncAwait.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AsyncAwait.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		65CBC1942258B8FD00EF5218 /* AsyncAwait-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AsyncAwait-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CBC1972258B8FD00EF5218 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65CBC1992258B8FD00EF5218 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		65CBC19C2258B8FD00EF5218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		65CBC19E2258B8FE00EF5218 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65CBC1A12258B8FE00EF5218 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65CBC1A32258B8FE00EF5218 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65CBC1AB2258B92800EF5218 /* Async+await.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Async+await.swift"; sourceTree = "<group>"; };
+		65CBC1AC2258B92800EF5218 /* Async.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Async.swift; sourceTree = "<group>"; };
+		65CBC1AD2258B92800EF5218 /* Future.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +44,7 @@
 		65CBC18B2258B8FD00EF5218 = {
 			isa = PBXGroup;
 			children = (
-				65CBC1962258B8FD00EF5218 /* AsyncAwait */,
+				65CBC1962258B8FD00EF5218 /* AsyncAwait-Example */,
 				65CBC1952258B8FD00EF5218 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,14 +52,15 @@
 		65CBC1952258B8FD00EF5218 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				65CBC1942258B8FD00EF5218 /* AsyncAwait.app */,
+				65CBC1942258B8FD00EF5218 /* AsyncAwait-Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		65CBC1962258B8FD00EF5218 /* AsyncAwait */ = {
+		65CBC1962258B8FD00EF5218 /* AsyncAwait-Example */ = {
 			isa = PBXGroup;
 			children = (
+				65CBC1A92258B90400EF5218 /* Sources */,
 				65CBC1972258B8FD00EF5218 /* AppDelegate.swift */,
 				65CBC1992258B8FD00EF5218 /* ViewController.swift */,
 				65CBC19B2258B8FD00EF5218 /* Main.storyboard */,
@@ -61,15 +68,33 @@
 				65CBC1A02258B8FE00EF5218 /* LaunchScreen.storyboard */,
 				65CBC1A32258B8FE00EF5218 /* Info.plist */,
 			);
-			path = AsyncAwait;
+			path = "AsyncAwait-Example";
+			sourceTree = "<group>";
+		};
+		65CBC1A92258B90400EF5218 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				65CBC1AA2258B92800EF5218 /* Async */,
+				65CBC1AD2258B92800EF5218 /* Future.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		65CBC1AA2258B92800EF5218 /* Async */ = {
+			isa = PBXGroup;
+			children = (
+				65CBC1AB2258B92800EF5218 /* Async+await.swift */,
+				65CBC1AC2258B92800EF5218 /* Async.swift */,
+			);
+			path = Async;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		65CBC1932258B8FD00EF5218 /* AsyncAwait */ = {
+		65CBC1932258B8FD00EF5218 /* AsyncAwait-Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 65CBC1A62258B8FE00EF5218 /* Build configuration list for PBXNativeTarget "AsyncAwait" */;
+			buildConfigurationList = 65CBC1A62258B8FE00EF5218 /* Build configuration list for PBXNativeTarget "AsyncAwait-Example" */;
 			buildPhases = (
 				65CBC1902258B8FD00EF5218 /* Sources */,
 				65CBC1912258B8FD00EF5218 /* Frameworks */,
@@ -79,9 +104,9 @@
 			);
 			dependencies = (
 			);
-			name = AsyncAwait;
+			name = "AsyncAwait-Example";
 			productName = AsyncAwait;
-			productReference = 65CBC1942258B8FD00EF5218 /* AsyncAwait.app */;
+			productReference = 65CBC1942258B8FD00EF5218 /* AsyncAwait-Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +124,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 65CBC18F2258B8FD00EF5218 /* Build configuration list for PBXProject "AsyncAwait" */;
+			buildConfigurationList = 65CBC18F2258B8FD00EF5218 /* Build configuration list for PBXProject "AsyncAwait-Example" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +137,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				65CBC1932258B8FD00EF5218 /* AsyncAwait */,
+				65CBC1932258B8FD00EF5218 /* AsyncAwait-Example */,
 			);
 		};
 /* End PBXProject section */
@@ -135,7 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65CBC1AF2258B92800EF5218 /* Async.swift in Sources */,
+				65CBC1AE2258B92800EF5218 /* Async+await.swift in Sources */,
 				65CBC19A2258B8FD00EF5218 /* ViewController.swift in Sources */,
+				65CBC1B02258B92800EF5218 /* Future.swift in Sources */,
 				65CBC1982258B8FD00EF5218 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PRK6268SLD;
-				INFOPLIST_FILE = AsyncAwait/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AsyncAwait-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PRK6268SLD;
-				INFOPLIST_FILE = AsyncAwait/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/AsyncAwait-Example/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -317,7 +345,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		65CBC18F2258B8FD00EF5218 /* Build configuration list for PBXProject "AsyncAwait" */ = {
+		65CBC18F2258B8FD00EF5218 /* Build configuration list for PBXProject "AsyncAwait-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65CBC1A42258B8FE00EF5218 /* Debug */,
@@ -326,7 +354,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		65CBC1A62258B8FE00EF5218 /* Build configuration list for PBXNativeTarget "AsyncAwait" */ = {
+		65CBC1A62258B8FE00EF5218 /* Build configuration list for PBXNativeTarget "AsyncAwait-Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				65CBC1A72258B8FE00EF5218 /* Debug */,
