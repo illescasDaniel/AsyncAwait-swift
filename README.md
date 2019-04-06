@@ -74,7 +74,6 @@ private func asyncTestValue() throws -> Int {
 
 - Third way. Not recomended for linked calls (pyramid of doom...).
 ```swift
-// Third way
 Async.run {
   let result1 = Async.await(somethingAsync1)
   switch result1 {
