@@ -1,7 +1,7 @@
 AsyncAwait
 -----
 
-Lightweight library for modern async/await syntax in Swift 5. 
+Lightweight library for modern async/await syntax in Swift 5.
 
 Inspired by the [Async/await JavaScript](https://javascript.info/async-await) syntax.
 
@@ -9,10 +9,11 @@ Inspired by the [Async/await JavaScript](https://javascript.info/async-await) sy
 
 ### Futures
 
-With `Future`'s you can transform your callbacks from: 
+With `Future`'s you can transform your callbacks from:
+
 `func somethingAsync1(_ completionHandler: @escaping (Int) -> Void))`
-to:
-`func somethingAsync1() -> Future<Int, CustomError>`
+
+to: `func somethingAsync1() -> Future<Int, CustomError>`
 
 Example:
 ```swift
@@ -63,7 +64,7 @@ Async.run {
 		print(error)
 	}
 }
-		
+
 private func asyncTestValue() throws -> Int {
 	let value = try Async.awaitValue(somethingAsync1)
 	let secondValue = try Async.awaitValue(somethingAsync2(inValue: value))
