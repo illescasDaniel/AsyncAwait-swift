@@ -91,8 +91,8 @@ class ViewController: UIViewController {
 	
 	// MARK: - async
 	private func asyncTestValue() throws -> Int {
-		let value = try Async.awaitValue(somethingAsync1)
-		let secondValue = try Async.awaitValue(somethingAsync2(inValue: value))
+		let value = try await { somethingAsync1 } // or: Async.awaitValue
+		let secondValue = try await { somethingAsync2(inValue: value) }
 		return secondValue
 	}
 

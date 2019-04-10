@@ -8,6 +8,9 @@
 
 import Foundation
 
+public typealias Callback<T> = (T) -> Void
+
+typealias FailableFuture<Element> = Future<Element, Error>
 typealias NaiveFuture<Element> = Future<Element, Never>
 
 public class Future<Element, FailureType: Error> {
@@ -18,7 +21,7 @@ public class Future<Element, FailureType: Error> {
 		self.completionHandler = completionHandler
 	}
 	
-	func onSuccess(_ handler: @escaping Callback<Element>) {
+	public func onSuccess(_ handler: @escaping Callback<Element>) {
 		self.completionHandler {
 			if case .success(let value) = $0 {
 				handler(value)
@@ -26,7 +29,7 @@ public class Future<Element, FailureType: Error> {
 		}
 	}
 	
-	func onError(_ handler: @escaping Callback<FailureType>) {
+	public func onError(_ handler: @escaping Callback<FailureType>) {
 		self.completionHandler {
 			if case .failure(let error) = $0 {
 				handler(error)
@@ -34,13 +37,13 @@ public class Future<Element, FailureType: Error> {
 		}
 	}
 	
-	func then(_ handler: @escaping Callback<Result<Element, FailureType>>) {
+	public func then(_ handler: @escaping Callback<Result<Element, FailureType>>) {
 		self.completionHandler(handler)
 	}
 
 	//
 
-	func map<OtherElement>(_ mapper: @escaping (Element) -> OtherElement) -> Future<OtherElement, FailureType> {
+	public func map<OtherElement>(_ mapper: @escaping (Element) -> OtherElement) -> Future<OtherElement, FailureType> {
 		return Future<OtherElement, FailureType> { completion in
 			self.then { selfResult in
 				switch selfResult {

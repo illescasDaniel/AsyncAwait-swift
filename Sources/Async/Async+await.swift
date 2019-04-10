@@ -83,3 +83,11 @@ public extension Async {
 		return try self.await(timeout: timeout, callback).get()
 	}
 }
+
+//
+public func await<Element, FailureType>(_ callback: @escaping () -> Future<Element, FailureType>) throws -> Element {
+	return try Async.awaitValue(callback())
+}
+public func await<Element>(_ callback: @escaping () -> ((@escaping Callback<Element>) throws -> ())) throws -> Element {
+	return try Async.awaitValue(callback())
+}

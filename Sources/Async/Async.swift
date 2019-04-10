@@ -8,8 +8,6 @@
 
 import Foundation
 
-public typealias Callback<T> = (T) -> Void
-
 public enum Async {
 	
 	public enum Failure: Error {
