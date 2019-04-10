@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias NaiveFuture<Element> = Future<Element, Never>
+
 public class Future<Element, FailureType: Error> {
 	
 	private let completionHandler: Callback<Callback<Result<Element, FailureType>>>
@@ -16,22 +18,20 @@ public class Future<Element, FailureType: Error> {
 		self.completionHandler = completionHandler
 	}
 	
-	func onSuccess(_ handler: @escaping Callback<Element>) -> Future  {
+	func onSuccess(_ handler: @escaping Callback<Element>) {
 		self.completionHandler {
 			if case .success(let value) = $0 {
 				handler(value)
 			}
 		}
-		return self
 	}
 	
-	func onError(_ handler: @escaping Callback<FailureType>) -> Future {
+	func onError(_ handler: @escaping Callback<FailureType>) {
 		self.completionHandler {
 			if case .failure(let error) = $0 {
 				handler(error)
 			}
 		}
-		return self
 	}
 	
 	func then(_ handler: @escaping Callback<Result<Element, FailureType>>) {

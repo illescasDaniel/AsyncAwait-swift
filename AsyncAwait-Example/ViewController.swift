@@ -31,6 +31,16 @@ func somethingAsync2(inValue: Int) -> Future<Int, TestError> {
 
 //
 
+func somethingAsync1_() -> NaiveFuture<Int> {
+	return Future { completion in
+		DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+			completion(.success(2999))
+		}
+	}
+}
+
+//
+
 class ViewController: UIViewController {
 
 	override func viewDidLoad() {
