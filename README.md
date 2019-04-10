@@ -18,9 +18,9 @@ to: `func somethingAsync1() -> Future<Int, CustomError>`
 **Example:**
 ```swift
 func somethingAsync1(_ completionHandler: @escaping (Int) -> Void) {
-  DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
-    completionHandler(200)
-  }
+    DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(1)) {
+        completionHandler(200)
+    }
 }
 ```
 ```swift
@@ -46,47 +46,47 @@ To retrieve values from `Future`'s, you need to call `Async.await(...)` inside `
 - First way
 ```swift
 Async.run {
-  let result1 = Async.await(somethingAsync1)
-  let result2 = result1.map { Async.await(somethingAsync2(inValue: $0)) }
-  print(result2)
-  // let result 3 = result2 .map { ... }
-  // etc
+    let result1 = Async.await(somethingAsync1)
+    let result2 = result1.map { Async.await(somethingAsync2(inValue: $0)) }
+    print(result2)
+    // let result 3 = result2 .map { ... }
+    // etc
 }
 ```
 
 - Second way (My favourite <3)
 ```swift
 Async.run {
-  do {
-    let value = try self.asyncTestValue()
-    print(value)
-  } catch {
-    print(error)
-  }
+    do {
+        let value = try self.asyncTestValue()
+        print(value)
+    } catch {
+        print(error)
+    }
 }
 
 private func asyncTestValue() throws -> Int {
-  let value = try await { somethingAsync1 } // or: Async.awaitValue
-	let secondValue = try await { somethingAsync2(inValue: value) }
-	return secondValue
+    let value = try await { somethingAsync1 } // or: Async.awaitValue
+    let secondValue = try await { somethingAsync2(inValue: value) }
+    return secondValue
 }
 ```
 
 - Third way. Not recomended for linked calls (pyramid of doom...).
 ```swift
 Async.run {
-  let result1 = Async.await(somethingAsync1)
-  switch result1 {
-  case .success(let value):
-    let result2 = Async.await(somethingAsync2(inValue: value))
-    switch result2 {
+    let result1 = Async.await(somethingAsync1)
+    switch result1 {
     case .success(let value):
-      print(value)
+        let result2 = Async.await(somethingAsync2(inValue: value))
+        switch result2 {
+        case .success(let value):
+            print(value)
+        case .failure(let error):
+            print(error)
+        }
     case .failure(let error):
-      print(error)
+        print(error)
     }
-  case .failure(let error):
-    print(error)
-  }
 }
 ```
